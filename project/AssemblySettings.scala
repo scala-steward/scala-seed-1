@@ -11,7 +11,7 @@ object AssemblySettings {
     assembly / test := {},
     assembly / assemblyMergeStrategy := {
       case "module-info.class" => MergeStrategy.last
-      case x =>
+      case x                   =>
         val oldStrategy = (assembly / assemblyMergeStrategy).value
         oldStrategy(x)
     }
