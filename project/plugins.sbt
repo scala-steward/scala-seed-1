@@ -5,7 +5,7 @@ addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.14.10")
 addSbtPlugin("com.eed3si9n" % "sbt-buildinfo" % "0.9.0")
 
 // J A V A  A G E N T
-addSbtPlugin("com.lightbend.sbt" % "sbt-javaagent" % "0.1.5")
+addSbtPlugin("com.lightbend.sbt" % "sbt-javaagent" % "0.1.6")
 
 // D E P E N D E N C Y  U P D A T E
 addSbtPlugin("org.jmotor.sbt" % "sbt-dependency-updates" % "1.2.2")
