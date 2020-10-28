@@ -1,5 +1,5 @@
-import sbt.Keys.{developers, homepage, licenses, organization, scalaVersion, scmInfo}
-import sbt.{Def, Developer, ScmInfo, url}
+import sbt.Keys.{ developers, homepage, licenses, organization, scalaVersion, scmInfo }
+import sbt.{ url, Def, Developer, ScmInfo }
 
 /**
  * @author Miguel Villafuerte
