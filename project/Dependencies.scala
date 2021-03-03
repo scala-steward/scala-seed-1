@@ -5,20 +5,22 @@ import sbt._
  */
 object Dependencies {
 
-  val core: Seq[ModuleID] = Seq()
-
-  val ui: Seq[ModuleID] = Seq()
-
-  val module: Seq[ModuleID] =
-    // M O D U L E
+  val core: Seq[ModuleID] =
+  // C O R E
     Seq(
       Artifact.zio % Version.zio
     ) ++ Seq(
-      // M O D U L E  T E S T
+      // C O R E  T E S T
       Artifact.zioTest    % Version.zio,
       Artifact.zioTestSbt % Version.zio,
       Artifact.scalaTest  % Version.scalaTest
     ).map(_        % Test)
+
+  val ui: Seq[ModuleID] =
+    Seq()
+
+  val module: Seq[ModuleID] =
+    Seq()
 
   val docs: Seq[ModuleID]   =
     // D O C S

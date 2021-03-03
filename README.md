@@ -18,3 +18,26 @@ WITH THE COMMAND `sbt docs/mdoc`
 Scala Seed is a project ...
 
 ****
+
+
+## [UI](https://mvillafuertem.github.io/scala-seed)
+
+### Development
+
+```shell
+
+sbt "project ui;~fastOptJS"
+
+yarn --cwd modules/ui/ webpack serve --env BUILD_KIND=development --mode=development --config webpack/scala.webpack.config.js
+
+```
+
+### Production
+
+```shell
+
+sbt "project ui;fullOptJS"
+
+yarn --cwd modules/ui/ webpack-cli --env BUILD_KIND=production --mode=production --config webpack/scala.webpack.config.js
+
+```

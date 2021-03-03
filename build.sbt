@@ -31,6 +31,9 @@ lazy val ui = (project in file("modules/ui"))
   .settings(commonSettingsJs)
   .settings(libraryDependencies ++= Dependencies.ui)
   .dependsOn(core.js)
+  // rename ui-fastopt.js and ui-opt.js to Scala.js
+  .settings(artifactPath.in(Compile, fastOptJS) := crossTarget.in(Compile, fastOptJS).value / "Scala.js")
+  .settings(artifactPath.in(Compile, fullOptJS) := crossTarget.in(Compile, fullOptJS).value / "Scala.js")
 
 lazy val server = (project in file("modules/server"))
   // S E T T I N G S
