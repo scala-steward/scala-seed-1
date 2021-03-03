@@ -4,10 +4,17 @@ lazy val commonSettings = Settings.value ++ Settings.testReport ++ Information.v
 
 lazy val `scala-seed` = (project in file("."))
   .aggregate(docs)
-  .aggregate(module)
+  .aggregate(ui)
+  .aggregate(server)
   // S E T T I N G S
   .settings(commonSettings)
   .settings(Settings.noPublish)
+
+lazy val core = crossProject(JSPlatform, JVMPlatform)
+  .crossType(CrossType.Pure)
+  .in(file("modules/core"))
+  .settings(commonSettings)
+  .settings(libraryDependencies ++= Dependencies.core)
 
 lazy val docs = (project in file("modules/docs"))
   // S E T T I N G S
@@ -18,7 +25,15 @@ lazy val docs = (project in file("modules/docs"))
   // P L U G I N S
   .enablePlugins(MdocPlugin)
 
-lazy val module = (project in file("modules/module"))
+lazy val ui = (project in file("modules/ui"))
+  .enablePlugins(ScalablyTypedConverterExternalNpmPlugin)
+  // S E T T I N G S
+  .settings(commonSettingsJs)
+  .settings(libraryDependencies ++= Dependencies.ui)
+  .dependsOn(core.js)
+
+lazy val server = (project in file("modules/server"))
   // S E T T I N G S
   .settings(commonSettings)
   .settings(libraryDependencies ++= Dependencies.module)
+  .dependsOn(core.jvm)

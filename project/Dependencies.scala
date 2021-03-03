@@ -5,6 +5,10 @@ import sbt._
  */
 object Dependencies {
 
+  val core: Seq[ModuleID] = Seq()
+
+  val ui: Seq[ModuleID] = Seq()
+
   val module: Seq[ModuleID] =
     // M O D U L E
     Seq(
