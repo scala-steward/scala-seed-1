@@ -30,4 +30,4 @@ jobs:
           set -o nounset
           set -o xtrace
 
-          sbt clean test dependencyUpdates
+          sbt clean test
