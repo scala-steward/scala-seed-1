@@ -1,8 +1,8 @@
 import org.scalablytyped.converter.plugin.ScalablyTypedConverterExternalNpmPlugin.autoImport.externalNpm
-import org.scalablytyped.converter.plugin.ScalablyTypedPluginBase.autoImport.{Flavour, stFlavour}
-import org.scalajs.sbtplugin.ScalaJSPlugin.autoImport.{ModuleKind, scalaJSLinkerConfig, scalaJSUseMainModuleInitializer}
-import sbt.Keys.{exportJars, _}
-import sbt.{Def, Tests, _}
+import org.scalablytyped.converter.plugin.ScalablyTypedPluginBase.autoImport.{ stFlavour, Flavour }
+import org.scalajs.sbtplugin.ScalaJSPlugin.autoImport.{ scalaJSLinkerConfig, scalaJSUseMainModuleInitializer, ModuleKind }
+import sbt.Keys.{ exportJars, _ }
+import sbt.{ Def, Tests, _ }
 
 import scala.sys.process.Process
 
@@ -11,8 +11,8 @@ object Settings {
   lazy val valueJs: Seq[Def.Setting[_]] = value ++ Seq(
     scalaJSUseMainModuleInitializer := true,
     scalaJSLinkerConfig ~= (/* disabled because it somehow triggers many warnings */
-      _.withSourceMap(false)
-        .withModuleKind(ModuleKind.CommonJSModule)),
+    _.withSourceMap(false)
+      .withModuleKind(ModuleKind.CommonJSModule)),
     externalNpm := {
       Process("yarn", baseDirectory.value).!
       baseDirectory.value
@@ -21,7 +21,7 @@ object Settings {
   )
 
   lazy val value: Seq[Def.Setting[_]] = Seq(
-    scalaVersion := "2.13.5",
+    scalaVersion := "2.13.14",
     scalacOptions := {
       val default = Seq(
         "-deprecation",
@@ -42,11 +42,11 @@ object Settings {
       // check against early initialization
     },
     javaOptions += "-Duser.timezone=UTC",
-    Test / fork := false,
-    Test / parallelExecution := false,
-    IntegrationTest / fork := false,
+    Test / fork                         := false,
+    Test / parallelExecution            := false,
+    IntegrationTest / fork              := false,
     IntegrationTest / parallelExecution := false,
-    Global / cancelable := true,
+    Global / cancelable                 := true,
     // OneJar
     exportJars := true
   )
