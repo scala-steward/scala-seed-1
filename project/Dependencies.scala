@@ -6,7 +6,7 @@ import sbt._
 object Dependencies {
 
   val core: Seq[ModuleID] =
-  // C O R E
+    // C O R E
     Seq(
       Artifact.zio % Version.zio
     ) ++ Seq(
@@ -14,7 +14,7 @@ object Dependencies {
       Artifact.zioTest    % Version.zio,
       Artifact.zioTestSbt % Version.zio,
       Artifact.scalaTest  % Version.scalaTest
-    ).map(_        % Test)
+    ).map(_ % Test)
 
   val ui: Seq[ModuleID] =
     Seq()
@@ -22,7 +22,7 @@ object Dependencies {
   val module: Seq[ModuleID] =
     Seq()
 
-  val docs: Seq[ModuleID]   =
+  val docs: Seq[ModuleID] =
     // D O C S
     Seq(
     ) ++ Seq(
@@ -38,8 +38,8 @@ object Dependencies {
   }
 
   private object Version {
-    val scalaTest = "3.2.8"
-    val zio = "1.0.4-2"
+    val scalaTest = "3.2.19"
+    val zio       = "1.0.4-2"
   }
 
 }
